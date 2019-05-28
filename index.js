@@ -47,8 +47,8 @@ export const outPut = e => {
 }
 /**
  * [AES加密（node<==java,c,o-c;iv-向量)]
- * @param    {[type]}                 key  [a41f821ea5c6f942]
- * @param    {[type]}                 iv   [a41f821ea5c6f942]
+ * @param    {[string]}                 key  [a41f821ea5c6f942]
+ * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
 export const _encrypt = (key, iv, data) => {
@@ -58,8 +58,8 @@ export const _encrypt = (key, iv, data) => {
 }
 /**
  * [AES解密（node<==java,c,o-c;iv-向量)]
- * @param    {[type]}                 key  [751f621ea5c8f930]
- * @param    {[type]}                 iv   [751f621ea5c8f930]
+ * @param    {[string]}                 key  [a41f821ea5c6f942]
+ * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
 export const _decrypt = (key, iv, crypted) => {
@@ -93,7 +93,7 @@ export const setCookie = (c_name, value, ms = null) => {
 }
 /**
  * 删除cookie
- * @param    {[type]}                 name [description]
+ * @param    {[string]}                 name [description]
  */
 export const delCookie = name => {
 	var exp = new Date();
@@ -118,9 +118,9 @@ export const setScrollTop = scroll_top => {
 }
 /**
  * 处理 中间内容...显示 字符串长度
- * @param    {[type]}                 str    
- * @param    {[type]}                 length [前后需要显示字符串长度]
- * @param    {[type]}                 symbol [需要显示的字符串 **** ]
+ * @param    {[string]}                 str    
+ * @param    {[number]}                 length [前后需要显示字符串长度]
+ * @param    {[string]}                 symbol [需要显示的字符串 **** ]
  */
 export const sub = (str, length, symbol) => {
 	let str1 = str.substr(0, length)
@@ -130,8 +130,8 @@ export const sub = (str, length, symbol) => {
 /**
  * 校验上传图片宽高
  * @param    {[type]}                 file   [文件]
- * @param    {[type]}                 width  [description]
- * @param    {[type]}                 height [description]
+ * @param    {[number]}                 width  [description]
+ * @param    {[number]}                 height [description]
  */
 export const checkImageWH = (file, width, height) => {
 	let self = this;
