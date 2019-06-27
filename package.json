@@ -1,7 +1,7 @@
 {
-  "name": "methods",
+  "name": "rz-methods",
   "version": "1.0.0",
-  "description": "常用js方法�",
+  "description": "常用js方法",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
