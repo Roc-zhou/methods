@@ -7,7 +7,7 @@
  * @param    {[String]}                 date [需要转换的时间]
  * @return   {[String]}                      [输出格式 2018-03-23 13:35:47]
  */
-export const formatDate = date => {
+const formatDate = date => {
 	date = new Date(date);
 	let y = date.getFullYear();
 	let m = date.getMonth() + 1;
@@ -27,13 +27,13 @@ export const formatDate = date => {
  * @param    {[String]}                 date [需要转换的时间]
  * @return   {[String]}                      [输出时间戳]
  */
-export const timeStamp = date => {
+const timeStamp = date => {
 	return Date.parse(new Date(date))
 }
 /**
  * [获取当前时间戳]
  */
-export const _timeStamp = () => {
+const _timeStamp = () => {
 	return (new Date()).valueOf()
 }
 /**
@@ -41,7 +41,7 @@ export const _timeStamp = () => {
  * @param    {[type]}                 e [需要输出的内容]
  * @return   {[type]}                   [description]
  */
-export const outPut = e => {
+const outPut = e => {
 	const Debug = !!~location.origin.indexOf('http://localhost:') || !!~location.origin.indexOf('http://192.168.') || !!~location.origin.indexOf('http://127.0.0.1:') || !!~location.origin.indexOf('http://0.0.0.0:')
 	return Debug && console.log(`%ctitle：${e.title}\n%cfrom：${document.title}\n%cdata：%o`, 'color:#cc7832;border-bottom:1px solid #57a3f3', 'color:#6a7c4e;border-bottom:1px solid #f7f7f7', 'color:#d24f4d', e.content)
 }
@@ -51,7 +51,7 @@ export const outPut = e => {
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
-export const _encrypt = (key, iv, data) => {
+const _encrypt = (key, iv, data) => {
 	const cipher = require('crypto').createCipheriv('aes-128-cbc', key, iv)
 	let crypted = cipher.update(data, 'utf8', 'binary')
 	return crypted += cipher.final('binary'), crypted = Buffer.from(crypted, 'binary').toString('base64'), crypted
@@ -62,7 +62,7 @@ export const _encrypt = (key, iv, data) => {
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
-export const _decrypt = (key, iv, crypted) => {
+const _decrypt = (key, iv, crypted) => {
 	crypted = Buffer.from(crypted, 'base64').toString('binary')
 	const decipher = require('crypto').createDecipheriv('aes-128-cbc', key, iv)
 	let decoded = decipher.update(crypted, 'binary', 'utf8')
@@ -71,7 +71,7 @@ export const _decrypt = (key, iv, crypted) => {
 /**
  * 获取cookie
  */
-export const getCookie = c_name => {
+const getCookie = c_name => {
 	if (!!document.cookie.length) {
 		let c_start = document.cookie.indexOf(c_name + '=')
 		if (!!~c_start) {
@@ -87,7 +87,7 @@ export const getCookie = c_name => {
  * 设置cookie
  * ms 毫秒
  */
-export const setCookie = (c_name, value, ms = null) => {
+const setCookie = (c_name, value, ms = null) => {
 	const date = new Date().getTime() + ms
 	return document.cookie = c_name + '=' + encodeURI(value) + ((ms === null) ? '' : ';expires=' + new Date(date).toGMTString()), null
 }
@@ -95,7 +95,7 @@ export const setCookie = (c_name, value, ms = null) => {
  * 删除cookie
  * @param    {[string]}                 name [description]
  */
-export const delCookie = name => {
+const delCookie = name => {
 	var exp = new Date();
 	exp.setTime(exp.getTime() - 1);
 	var cval = getCookie(name);
@@ -105,13 +105,13 @@ export const delCookie = name => {
 /**
  * 获取scrollTop的值：兼容所有浏览器
  */
-export const getScrollTop = () => {
+const getScrollTop = () => {
 	return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
 }
 /**
  * 设置scrollTop的值，兼容所有浏览器
  */
-export const setScrollTop = scroll_top => {
+const setScrollTop = scroll_top => {
 	document.documentElement.scrollTop = scroll_top
 	window.pageYOffset = scroll_top
 	document.body.scrollTop = scroll_top
@@ -122,9 +122,9 @@ export const setScrollTop = scroll_top => {
  * @param    {[number]}                 length [前后需要显示字符串长度]
  * @param    {[string]}                 symbol [需要显示的字符串 **** ]
  */
-export const sub = (str, length, symbol) => {
-	let str1 = str.substr(0, length)
-	let str2 = str.substr(str.length - length, length)
+const sub = (str, length, symbol) => {
+	let str1 = str.substr(0, length),
+		str2 = str.substr(str.length - length, length)
 	return str1 + symbol + str2
 }
 /**
@@ -133,7 +133,7 @@ export const sub = (str, length, symbol) => {
  * @param    {[number]}                 width  [description]
  * @param    {[number]}                 height [description]
  */
-export const checkImageWH = (file, width, height) => {
+const checkImageWH = (file, width, height) => {
 	let self = this;
 	return new Promise(function(resolve, reject) {
 		let filereader = new FileReader();
@@ -162,10 +162,10 @@ export const checkImageWH = (file, width, height) => {
 /**
  * 数组去重
  */
-export const unique = arr => {
+const unique = arr => {
 	return Array.from(new Set(arr))
 }
-export const to_heavy = arr => {
+const to_heavy = arr => {
 	const array = []
 	for (const x of arr) {
 		if (array.indexOf(x) === -1) {
@@ -177,7 +177,7 @@ export const to_heavy = arr => {
 /**
  * 浏览器方法
  */
-export const isBrowser = () => {
+const isBrowser = () => {
 	const UA = !!window && window.navigator.userAgent.toLowerCase();
 	return {
 		_isIE: UA && /msie|trident/.test(UA),
@@ -201,10 +201,30 @@ export const isBrowser = () => {
  * 随机字符串 
  * 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
  */
-export const randomString = (len = 10) => {
+const randomString = (len = 10) => {
 	const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',
 		maxPos = $chars.length
 	let pwd = ''
 	for (let i = 0; i < len; i++) pwd += $chars.charAt(Math.floor(Math.random() * maxPos))
 	return pwd
+}
+
+export default {
+	formatDate,
+	timeStamp,
+	_timeStamp,
+	outPut,
+	_encrypt,
+	_decrypt,
+	getCookie,
+	setCookie,
+	delCookie,
+	getScrollTop,
+	setScrollTop,
+	sub,
+	checkImageWH,
+	unique,
+	to_heavy,
+	isBrowser,
+	randomString
 }
