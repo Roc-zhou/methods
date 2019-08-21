@@ -18,3 +18,5 @@ formatDate(new Date()) => 2018-03-23 13:35:47
 - _timeStamp => 获取当前时间戳
 - isBrowser => 验证浏览器方法
 - ...
+
+### 增加typescript支持

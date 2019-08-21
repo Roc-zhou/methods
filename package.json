@@ -1,10 +1,10 @@
 {
   "name": "rz-methods",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "常用js方法",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Roc-zhou/methods/issues"
   },
-  "homepage": "https://github.com/Roc-zhou/methods#readme"
+  "homepage": "https://github.com/Roc-zhou/methods#readme",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/node": "^12.7.2"
+  }
 }
