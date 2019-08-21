@@ -145,7 +145,6 @@ const sub = (str: string, length: number, symbol: string): string => {
  * @param    {[number]}                 height [description]
  */
 const checkImageWH = (file: any, width: any, height: any) => {
-  let self = this;
   return new Promise(function (resolve, reject) {
     let filereader = new FileReader();
     filereader.onload = (e: any) => {
@@ -156,9 +155,6 @@ const checkImageWH = (file: any, width: any, height: any) => {
           (width && image.width != width) ||
           (height && image.height != height)
         ) {
-					/*self.$Notice.error({
-						title: `请上传 ${width}*${height} 的图片`
-					});*/
           reject('error');
         } else {
           resolve();
