@@ -20,3 +20,14 @@ formatDate(new Date()) => 2018-03-23 13:35:47
 - ...
 
 ### 增加typescript支持
+
+```
+npm install --save @types/rz-methods
+```
+使用 
+
+```
+import $util from 'rz-methods'
+
+console.log($util);
+```
