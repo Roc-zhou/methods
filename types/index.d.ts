@@ -30,5 +30,6 @@ declare const _default: {
         _isPC: () => boolean;
     };
     randomString: (len?: number) => string;
+    separator: (data: string | number, num?: number, str?: string) => string;
 };
 export default _default;
