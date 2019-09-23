@@ -240,9 +240,7 @@ const separator = (data: string | number, num: number = 3, str: string = ','): s
  */
 const clone = (obj: any) => {
   let result: any = obj.constructor === Array ? [] : {};
-  if (typeof obj !== 'object') {
-    return obj;
-  }
+  if (typeof obj !== 'object') return obj;
   for (const x in obj) {
     if (obj.hasOwnProperty(x)) {
       if (typeof obj[x] === 'object' && obj[x] !== null) {
