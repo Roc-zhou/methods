@@ -234,6 +234,26 @@ const separator = (data: string | number, num: number = 3, str: string = ','): s
     return reseData.reverse().join('')
   }
 }
+/**
+ * 深度克隆
+ * 
+ */
+const clone = (obj: any) => {
+  let result: any = obj.constructor === Array ? [] : {};
+  if (typeof obj !== 'object') {
+    return obj;
+  }
+  for (const x in obj) {
+    if (obj.hasOwnProperty(x)) {
+      if (typeof obj[x] === 'object' && obj[x] !== null) {
+        result[x] = clone(obj[x]);   //递归复制
+      } else {
+        result[x] = obj[x];
+      }
+    }
+  }
+  return result
+}
 
 export default {
   formatDate,
@@ -253,5 +273,6 @@ export default {
   to_heavy,
   isBrowser,
   randomString,
-  separator
+  separator,
+  clone
 }

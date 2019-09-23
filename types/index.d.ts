@@ -31,5 +31,6 @@ declare const _default: {
     };
     randomString: (len?: number) => string;
     separator: (data: string | number, num?: number, str?: string) => string;
+    clone: (obj: any) => any;
 };
 export default _default;
