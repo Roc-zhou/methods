@@ -9,6 +9,8 @@ npm install --save rz-methods or cnpm install --save rz-methods
 ```JavaScript
 import { formatDate } from 'rz-methods'
 
+const { formatDate } = require('rz-methods').default
+
 formatDate(new Date()) => 2018-03-23 13:35:47
 
 ```
