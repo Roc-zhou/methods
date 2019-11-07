@@ -16,7 +16,7 @@
  * mm 分钟 35
  * ss 秒 47
  */
-const formatDate = (date: any, format = 'yyyy-MM-dd hh:mm:ss'): string => {
+const formatDate = (date: any, format: string = 'yyyy-MM-dd hh:mm:ss'): string => {
   if (!date) return '';
   date = new Date(date);
   let y = date.getFullYear();
@@ -57,7 +57,6 @@ const outPut = (e: any) => {
   return Debug && console.log(`%ctitle：${e.title}\n%cfrom：${document.title}\n%cdata：%o`, 'color:#cc7832;border-bottom:1px solid #57a3f3', 'color:#6a7c4e;border-bottom:1px solid #f7f7f7', 'color:#d24f4d', e.content)
 }
 /**
- * [AES加密（node<==java,c,o-c;iv-向量)]
  * @param    {[string]}                 key  [a41f821ea5c6f942]
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
@@ -68,7 +67,6 @@ const _encrypt = (key: string, iv: string, data: string): string => {
   return crypted += cipher.final('binary'), crypted = Buffer.from(crypted, 'binary').toString('base64'), crypted
 }
 /**
- * [AES解密（node<==java,c,o-c;iv-向量)]
  * @param    {[string]}                 key  [a41f821ea5c6f942]
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]

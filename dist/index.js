@@ -58,7 +58,6 @@ const outPut = (e) => {
     return Debug && console.log(`%ctitle：${e.title}\n%cfrom：${document.title}\n%cdata：%o`, 'color:#cc7832;border-bottom:1px solid #57a3f3', 'color:#6a7c4e;border-bottom:1px solid #f7f7f7', 'color:#d24f4d', e.content);
 };
 /**
- * [AES加密（node<==java,c,o-c;iv-向量)]
  * @param    {[string]}                 key  [a41f821ea5c6f942]
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
@@ -69,7 +68,6 @@ const _encrypt = (key, iv, data) => {
     return crypted += cipher.final('binary'), crypted = Buffer.from(crypted, 'binary').toString('base64'), crypted;
 };
 /**
- * [AES解密（node<==java,c,o-c;iv-向量)]
  * @param    {[string]}                 key  [a41f821ea5c6f942]
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
@@ -238,9 +236,8 @@ const separator = (data, num = 3, str = ',') => {
  */
 const clone = (obj) => {
     let result = obj.constructor === Array ? [] : {};
-    if (typeof obj !== 'object') {
+    if (typeof obj !== 'object')
         return obj;
-    }
     for (const x in obj) {
         if (obj.hasOwnProperty(x)) {
             if (typeof obj[x] === 'object' && obj[x] !== null) {
