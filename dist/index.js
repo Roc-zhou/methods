@@ -1,9 +1,7 @@
-"use strict";
 /**
  * 采用Es6方式
  * author:roc_zhou
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * [时间格式化]
  * @param    {[String]}                 date [需要转换的时间]
@@ -17,16 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * mm 分钟 35
  * ss 秒 47
  */
-const formatDate = (date, format = 'yyyy-MM-dd hh:mm:ss') => {
+var formatDate = function (date, format) {
+    if (format === void 0) { format = 'yyyy-MM-dd hh:mm:ss'; }
     if (!date)
         return '';
     date = new Date(date);
-    let y = date.getFullYear();
-    let m = date.getMonth() + 1;
-    let d = date.getDate();
-    let h = date.getHours();
-    let m1 = date.getMinutes();
-    let s = date.getSeconds();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var m1 = date.getMinutes();
+    var s = date.getSeconds();
     m = m < 10 ? ("0" + m) : m;
     d = d < 10 ? ("0" + d) : d;
     h = h < 10 ? ("0" + h) : h;
@@ -39,13 +38,13 @@ const formatDate = (date, format = 'yyyy-MM-dd hh:mm:ss') => {
  * @param    {[String]}                 date [需要转换的时间]
  * @return   {[String]}                      [输出时间戳]
  */
-const timeStamp = (date) => {
+var timeStamp = function (date) {
     return (new Date(date)).valueOf;
 };
 /**
  * [获取当前时间戳]
  */
-const _timeStamp = () => {
+var _timeStamp = function () {
     return (new Date()).valueOf();
 };
 /**
@@ -53,18 +52,18 @@ const _timeStamp = () => {
  * @param    {[type]}                 e [需要输出的内容]
  * @return   {[type]}                   [description]
  */
-const outPut = (e) => {
-    const Debug = !!~location.origin.indexOf('http://localhost:') || !!~location.origin.indexOf('http://192.168.') || !!~location.origin.indexOf('http://127.0.0.1:') || !!~location.origin.indexOf('http://0.0.0.0:');
-    return Debug && console.log(`%ctitle：${e.title}\n%cfrom：${document.title}\n%cdata：%o`, 'color:#cc7832;border-bottom:1px solid #57a3f3', 'color:#6a7c4e;border-bottom:1px solid #f7f7f7', 'color:#d24f4d', e.content);
+var outPut = function (e) {
+    var Debug = !!~location.origin.indexOf('http://localhost:') || !!~location.origin.indexOf('http://192.168.') || !!~location.origin.indexOf('http://127.0.0.1:') || !!~location.origin.indexOf('http://0.0.0.0:');
+    return Debug && console.log("%ctitle\uFF1A" + e.title + "\n%cfrom\uFF1A" + document.title + "\n%cdata\uFF1A%o", 'color:#cc7832;border-bottom:1px solid #57a3f3', 'color:#6a7c4e;border-bottom:1px solid #f7f7f7', 'color:#d24f4d', e.content);
 };
 /**
  * @param    {[string]}                 key  [a41f821ea5c6f942]
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
-const _encrypt = (key, iv, data) => {
-    const cipher = require('crypto').createCipheriv('aes-128-cbc', key, iv);
-    let crypted = cipher.update(data, 'utf8', 'binary');
+var _encrypt = function (key, iv, data) {
+    var cipher = require('crypto').createCipheriv('aes-128-cbc', key, iv);
+    var crypted = cipher.update(data, 'utf8', 'binary');
     return crypted += cipher.final('binary'), crypted = Buffer.from(crypted, 'binary').toString('base64'), crypted;
 };
 /**
@@ -72,21 +71,21 @@ const _encrypt = (key, iv, data) => {
  * @param    {[string]}                 iv   [a41f821ea5c6f942]
  * @param    {[type]}                 data [data]
  */
-const _decrypt = (key, iv, crypted) => {
+var _decrypt = function (key, iv, crypted) {
     crypted = Buffer.from(crypted, 'base64').toString('binary');
-    const decipher = require('crypto').createDecipheriv('aes-128-cbc', key, iv);
-    let decoded = decipher.update(crypted, 'binary', 'utf8');
+    var decipher = require('crypto').createDecipheriv('aes-128-cbc', key, iv);
+    var decoded = decipher.update(crypted, 'binary', 'utf8');
     return decoded += decipher.final('utf8'), decoded;
 };
 /**
  * 获取cookie
  */
-const getCookie = (c_name) => {
+var getCookie = function (c_name) {
     if (!!document.cookie.length) {
-        let c_start = document.cookie.indexOf(c_name + '=');
+        var c_start = document.cookie.indexOf(c_name + '=');
         if (!!~c_start) {
             c_start = c_start + c_name.length + 1;
-            let c_end = document.cookie.indexOf(';', c_start);
+            var c_end = document.cookie.indexOf(';', c_start);
             if (!~c_end)
                 c_end = document.cookie.length;
             return decodeURI(document.cookie.substring(c_start, c_end));
@@ -98,15 +97,16 @@ const getCookie = (c_name) => {
  * 设置cookie
  * ms 毫秒
  */
-const setCookie = (c_name, value, ms = null) => {
-    const date = new Date().getTime() + ms;
+var setCookie = function (c_name, value, ms) {
+    if (ms === void 0) { ms = null; }
+    var date = new Date().getTime() + ms;
     return document.cookie = c_name + '=' + encodeURI(value) + ((ms === null) ? '' : ';expires=' + new Date(date).toUTCString()), null;
 };
 /**
  * 删除cookie
  * @param    {[string]}                 name [description]
  */
-const delCookie = (name) => {
+var delCookie = function (name) {
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
     var cval = getCookie(name);
@@ -116,13 +116,13 @@ const delCookie = (name) => {
 /**
  * 获取scrollTop的值：兼容所有浏览器
  */
-const getScrollTop = () => {
+var getScrollTop = function () {
     return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 };
 /**
  * 设置scrollTop的值，兼容所有浏览器
  */
-const setScrollTop = (scroll_top) => {
+var setScrollTop = function (scroll_top) {
     document.documentElement.scrollTop = scroll_top;
     // window.pageYOffset = scroll_top
     document.body.scrollTop = scroll_top;
@@ -133,8 +133,8 @@ const setScrollTop = (scroll_top) => {
  * @param    {[number]}                 length [前后需要显示字符串长度]
  * @param    {[string]}                 symbol [需要显示的字符串 **** ]
  */
-const sub = (str, length, symbol) => {
-    let str1 = str.substr(0, length), str2 = str.substr(str.length - length, length);
+var sub = function (str, length, symbol) {
+    var str1 = str.substr(0, length), str2 = str.substr(str.length - length, length);
     return str1 + symbol + str2;
 };
 /**
@@ -143,12 +143,12 @@ const sub = (str, length, symbol) => {
  * @param    {[number]}                 width  [description]
  * @param    {[number]}                 height [description]
  */
-const checkImageWH = (file, width, height) => {
+var checkImageWH = function (file, width, height) {
     return new Promise(function (resolve, reject) {
-        let filereader = new FileReader();
-        filereader.onload = (e) => {
-            let src = e.target.result;
-            const image = new Image();
+        var filereader = new FileReader();
+        filereader.onload = function (e) {
+            var src = e.target.result;
+            var image = new Image();
             image.onload = function () {
                 if ((width && image.width != width) ||
                     (height && image.height != height)) {
@@ -167,12 +167,13 @@ const checkImageWH = (file, width, height) => {
 /**
  * 数组去重
  */
-const unique = (arr) => {
+var unique = function (arr) {
     return Array.from(new Set(arr));
 };
-const to_heavy = (arr) => {
-    const array = [];
-    for (const x of arr) {
+var to_heavy = function (arr) {
+    var array = [];
+    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
+        var x = arr_1[_i];
         if (array.indexOf(x) === -1) {
             array.push(x);
         }
@@ -182,8 +183,8 @@ const to_heavy = (arr) => {
 /**
  * 浏览器方法
  */
-const isBrowser = () => {
-    const UA = !!window && window.navigator.userAgent.toLowerCase();
+var isBrowser = function () {
+    var UA = !!window && window.navigator.userAgent.toLowerCase();
     return {
         _isIE: UA && /msie|trident/.test(UA),
         _isIE9: UA && !!~UA.indexOf('msie 9.0'),
@@ -193,11 +194,13 @@ const isBrowser = () => {
         _isChrome: UA && /chrome\/\d+/.test(UA) && !~UA.indexOf('edge/'),
         _isWX: UA && /micromessenger/.test(UA),
         _isQQ: UA && /qqbrowser/.test(UA),
-        _isPC: () => {
-            const userAgentInfo = navigator.userAgent, Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
-            for (let x of Agents)
+        _isPC: function () {
+            var userAgentInfo = navigator.userAgent, Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+            for (var _i = 0, Agents_1 = Agents; _i < Agents_1.length; _i++) {
+                var x = Agents_1[_i];
                 if (!!~userAgentInfo.indexOf(x))
                     return false;
+            }
             return true;
         }
     };
@@ -206,20 +209,23 @@ const isBrowser = () => {
  * 随机字符串
  * 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
  */
-const randomString = (len = 10) => {
-    const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length;
-    let pwd = '';
-    for (let i = 0; i < len; i++)
+var randomString = function (len) {
+    if (len === void 0) { len = 10; }
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length;
+    var pwd = '';
+    for (var i = 0; i < len; i++)
         pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
     return pwd;
 };
 /**
  * 分割符 10002061122.891 => 10,002,061,122.891
  */
-const separator = (data, num = 3, str = ',') => {
+var separator = function (data, num, str) {
+    if (num === void 0) { num = 3; }
+    if (str === void 0) { str = ','; }
     // 分割小数位
-    const dataString = data.toString().split('.'), reseData = dataString[0].split('').reverse(), count = reseData.length % num === 0 ? parseInt((reseData.length / num).toString()) : parseInt((reseData.length / num).toString()) + 1;
-    for (let i = 1; i < count; i++) {
+    var dataString = data.toString().split('.'), reseData = dataString[0].split('').reverse(), count = reseData.length % num === 0 ? parseInt((reseData.length / num).toString()) : parseInt((reseData.length / num).toString()) + 1;
+    for (var i = 1; i < count; i++) {
         reseData.splice(4 * i - 1, 0, str);
     }
     console.log(reseData);
@@ -234,11 +240,11 @@ const separator = (data, num = 3, str = ',') => {
  * 深度克隆
  *
  */
-const clone = (obj) => {
-    let result = obj.constructor === Array ? [] : {};
+var clone = function (obj) {
+    var result = obj.constructor === Array ? [] : {};
     if (typeof obj !== 'object')
         return obj;
-    for (const x in obj) {
+    for (var x in obj) {
         if (obj.hasOwnProperty(x)) {
             if (typeof obj[x] === 'object' && obj[x] !== null) {
                 result[x] = clone(obj[x]); //递归复制
@@ -250,24 +256,24 @@ const clone = (obj) => {
     }
     return result;
 };
-exports.default = {
-    formatDate,
-    timeStamp,
-    _timeStamp,
-    outPut,
-    _encrypt,
-    _decrypt,
-    getCookie,
-    setCookie,
-    delCookie,
-    getScrollTop,
-    setScrollTop,
-    sub,
-    checkImageWH,
-    unique,
-    to_heavy,
-    isBrowser,
-    randomString,
-    separator,
-    clone
+export default {
+    formatDate: formatDate,
+    timeStamp: timeStamp,
+    _timeStamp: _timeStamp,
+    outPut: outPut,
+    _encrypt: _encrypt,
+    _decrypt: _decrypt,
+    getCookie: getCookie,
+    setCookie: setCookie,
+    delCookie: delCookie,
+    getScrollTop: getScrollTop,
+    setScrollTop: setScrollTop,
+    sub: sub,
+    checkImageWH: checkImageWH,
+    unique: unique,
+    to_heavy: to_heavy,
+    isBrowser: isBrowser,
+    randomString: randomString,
+    separator: separator,
+    clone: clone
 };
