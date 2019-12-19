@@ -222,10 +222,8 @@ const separator = (data: string | number, num: number = 3, str: string = ','): s
   const dataString = data.toString().split('.'),
     reseData = dataString[0].split('').reverse(),
     count = reseData.length % num === 0 ? parseInt((reseData.length / num).toString()) : parseInt((reseData.length / num).toString()) + 1
-  for (let i = 1; i < count; i++) {
+  for (let i = 1; i < count; i++)
     reseData.splice(4 * i - 1, 0, str)
-  }
-  console.log(reseData);
   if (dataString[1]) {
     return reseData.reverse().join('') + '.' + dataString[1]
   } else {
@@ -234,7 +232,6 @@ const separator = (data: string | number, num: number = 3, str: string = ','): s
 }
 /**
  * 深度克隆
- * 
  */
 const clone = (obj: any) => {
   let result: any = obj.constructor === Array ? [] : {};

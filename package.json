@@ -1,6 +1,6 @@
 {
   "name": "rz-methods",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "常用js方法",
   "main": "dist/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "devDependencies": {
     "typescript": "^3.5.3"
   },
+  "keywords": ["util", "methods"],
   "dependencies": {
     "@types/node": "^12.7.2"
   }
