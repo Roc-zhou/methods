@@ -7,9 +7,11 @@ npm install --save rz-methods or cnpm install --save rz-methods
 
 ### example
 ```JavaScript
-import { formatDate } from 'rz-methods'
+import tool from 'rz-methods'
 
-formatDate(new Date()) => 2018-03-23 13:35:47
+const { formatDate } = require('rz-methods').default
+
+tool.formatDate(new Date()) => 2018-03-23 13:35:47
 
 ```
 
