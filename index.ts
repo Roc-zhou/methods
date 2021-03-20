@@ -145,7 +145,7 @@ const sub = (str: string, length: number, symbol: string): string => {
  * @param    {[number]}                 height [description]
  */
 const checkImageWH = (file: any, width: any, height: any) => {
-  return new Promise(function (resolve, reject) {
+  return new Promise<void>(function (resolve, reject) {
     let filereader = new FileReader();
     filereader.onload = (e: any) => {
       let src = e.target.result;
