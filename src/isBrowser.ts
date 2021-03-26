@@ -1,3 +1,6 @@
+/**
+ * 浏览器方法
+ */
 export function isBrowser<T>() {
     const UA = !!window && window.navigator.userAgent.toLowerCase();
     return {
