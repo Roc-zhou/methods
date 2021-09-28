@@ -7,6 +7,7 @@ import { formatDate, timeStamp, _timeStamp } from './src/time/index'
 import { _encrypt, _decrypt } from './src/encrypt/index'
 import { getCookie, setCookie, delCookie } from './src/cookie/index'
 import { unique, to_heavy } from './src/array/index'
+import { isArray } from './src/checkType'
 
 export {
     separator,
@@ -23,5 +24,6 @@ export {
     setCookie,
     delCookie,
     unique,
-    to_heavy
+    to_heavy,
+    isArray
 }
