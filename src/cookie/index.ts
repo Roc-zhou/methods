@@ -1,7 +1,7 @@
 /**
  * 获取cookie
  */
-export function getCookie<T>(c_name: string) {
+export function getCookie(c_name: string) {
     if (!!document.cookie.length) {
         let c_start = document.cookie.indexOf(c_name + '=')
         if (!!~c_start) {
@@ -17,7 +17,7 @@ export function getCookie<T>(c_name: string) {
  * 设置cookie
  * ms 毫秒
  */
-export function setCookie<T>(c_name: string, value: any, ms: any = null) {
+export function setCookie(c_name: string, value: any, ms: any = null) {
     const date = new Date().getTime() + ms
     return document.cookie = c_name + '=' + encodeURI(value) + ((ms === null) ? '' : ';expires=' + new Date(date).toUTCString()), null
 }
@@ -25,7 +25,7 @@ export function setCookie<T>(c_name: string, value: any, ms: any = null) {
  * 删除cookie
  * @param    {[string]}                 name [description]
  */
-export function delCookie<T>(name: string) {
+export function delCookie(name: string) {
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
     var cval = getCookie(name);

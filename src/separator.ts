@@ -2,7 +2,7 @@
 /**
  * 分割符 10002061122.891 => 10,002,061,122.891
  */
-export function separator<T>(data: string | number, num: number = 3, str: string = ','): string {
+export function separator(data: string | number, num: number = 3, str: string = ','): string {
     // 分割小数位
     const dataString = data.toString().split('.'),
         reseData = dataString[0].split('').reverse(),

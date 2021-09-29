@@ -2,7 +2,7 @@
  * 随机字符串
  * 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
  */
-export function randomString<T>(len: number = 10): string {
+export function randomString(len: number = 10): string {
     const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678',
         maxPos = $chars.length
     let pwd = ''
