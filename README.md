@@ -30,6 +30,4 @@ npm install --save @types/rz-methods
 
 ```
 import {xxx} from 'rz-methods'
-
-console.log($util);
 ```
