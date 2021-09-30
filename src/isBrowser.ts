@@ -16,6 +16,7 @@ export function isBrowser() {
       const userAgentInfo = navigator.userAgent,
         Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']
       for (let x of Agents)
+        // eslint-disable-next-line no-extra-boolean-cast
         if (!!~userAgentInfo.indexOf(x)) return false
       return true
     }

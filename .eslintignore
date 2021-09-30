@@ -1,0 +1,8 @@
+LICENSE
+.vscode
+.git
+.gitignore
+dist
+types
+README.md
+node_modules

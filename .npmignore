@@ -1,0 +1,11 @@
+src
+rollup.config.js
+tsconfig.json
+tsconfig.test.json
+tsconfig.types.json
+
+
+.npmignore
+.vscode
+.gitignore
+.git

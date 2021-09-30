@@ -2,8 +2,10 @@
  * 获取cookie
  */
 export function getCookie(c_name: string) {
+  // eslint-disable-next-line no-extra-boolean-cast
   if (!!document.cookie.length) {
     let c_start = document.cookie.indexOf(c_name + '=')
+    // eslint-disable-next-line no-extra-boolean-cast
     if (!!~c_start) {
       c_start = c_start + c_name.length + 1
       let c_end = document.cookie.indexOf(';', c_start)
@@ -26,9 +28,9 @@ export function setCookie(c_name: string, value: any, ms: any = null) {
  * @param    {[string]}                 name [description]
  */
 export function delCookie(name: string) {
-  var exp = new Date();
+  let exp = new Date();
   exp.setTime(exp.getTime() - 1);
-  var cval = getCookie(name);
+  let cval = getCookie(name);
   if (cval != null)
-      document.cookie = name + "=" + cval + ";expires=" + exp.toUTCString();
+    document.cookie = name + "=" + cval + ";expires=" + exp.toUTCString();
 }
