@@ -10,20 +10,20 @@ import { unique, to_heavy } from './array/index'
 import { isArray } from './checkType'
 
 export {
-    separator,
-    randomString,
-    outPut,
-    isBrowser,
-    deepClone,
-    formatDate,
-    timeStamp,
-    _timeStamp,
-    _encrypt,
-    _decrypt,
-    getCookie,
-    setCookie,
-    delCookie,
-    unique,
-    to_heavy,
-    isArray
+  separator,
+  randomString,
+  outPut,
+  isBrowser,
+  deepClone,
+  formatDate,
+  timeStamp,
+  _timeStamp,
+  _encrypt,
+  _decrypt,
+  getCookie,
+  setCookie,
+  delCookie,
+  unique,
+  to_heavy,
+  isArray
 }

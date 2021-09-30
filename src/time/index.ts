@@ -37,12 +37,12 @@ export function formatDate(date: any, format = 'yyyy-MM-dd hh:mm:ss'): string {
  * @return   {[String]}                      [输出时间戳]
  */
 export function timeStamp(date: string): number {
-    return (new Date(date)).valueOf()
+  return (new Date(date)).valueOf()
 }
 
 /**
  * [获取当前时间戳]
  */
 export function _timeStamp(): number{
-    return (new Date()).valueOf()
+  return (new Date()).valueOf()
 }
