@@ -1,5 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "removeComments": false,
+    "outDir": "./dist/esm",
+    "declaration": false
   },
 }

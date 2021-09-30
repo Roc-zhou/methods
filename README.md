@@ -6,12 +6,12 @@ npm install --save rz-methods or cnpm install --save rz-methods
 ```
 
 ### example
-```JavaScript
-import tool from 'rz-methods'
+```js
+const { formatDate } = require('rz-methods')
+or
+import { formatDate } = from 'rz-methods'
 
-const { formatDate } = require('rz-methods').default
-
-tool.formatDate(new Date()) => 2018-03-23 13:35:47
+formatDate(new Date()) => 2018-03-23 13:35:47
 
 ```
 
@@ -29,7 +29,7 @@ npm install --save @types/rz-methods
 使用 
 
 ```
-import $util from 'rz-methods'
+import {xxx} from 'rz-methods'
 
 console.log($util);
 ```

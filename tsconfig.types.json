@@ -5,7 +5,7 @@
     "removeComments": false,
     "declaration": true,
     "declarationMap": false,
-    "declarationDir": "./dist/types",
+    "declarationDir": "./types",
     "emitDeclarationOnly": true,
     "rootDir": "./src"
   }

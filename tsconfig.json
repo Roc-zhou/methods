@@ -1,13 +1,13 @@
 {
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules","dist","types"],
   "include": [
     "./src/**/*.ts"
   ],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
-    // "target": "ES5",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
-    // "module": "ES2015",                    /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "target": "ES5",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
+    "module": "ES2015",                    /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     "lib": [
       "dom",
       "esnext",
@@ -24,7 +24,7 @@
     "allowSyntheticDefaultImports": true,      /* 允许从没有默认导出的模块中默认导入。这不会影响代码发出，只是类型检查。 */
     "preserveConstEnums": true,               // 生成映射代码时，也可以设置 tsconfig.json 中的配置
     "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
-    // "removeComments": true,                   /* Do not emit comments to output. */
+    "removeComments": true,                   /* Do not emit comments to output. */
     // "emitDeclarationOnly": true,               // 只生成声明文件，而不会生成js文件
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
