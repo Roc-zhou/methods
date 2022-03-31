@@ -46,3 +46,21 @@ export function timeStamp(date: string): number {
 export function _timeStamp(): number{
   return (new Date()).valueOf()
 }
+
+/**
+ * 【时间戳转时分秒】
+ */
+export function timeStampToString(stamp: number, format = 'hh:mm:ss'): string {
+  let h: any, m: any, s: any
+  if (stamp > -1) {
+    h = Math.floor(stamp / 3600);
+    m = Math.floor(stamp / 60) % 60;
+    s = stamp % 60;
+    if (h < 10) h = `0${h}`
+    if (m < 10) m = `0${m}`
+    if (s < 10) s = `0${s}`
+  }
+
+  format = format.replace('hh', h).replace('mm', m).replace('ss', s)
+  return format
+}
